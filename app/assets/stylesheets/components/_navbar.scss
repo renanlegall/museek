@@ -15,6 +15,22 @@
   height: 50px;
 }
 
+.logo-title h3 {
+  font-family: quicksand;
+  font-size: 35px;
+  color: #484848;
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-title {
+  padding-left: 10px;
+}
+
 /* User Avatar */
 .navbar-wagon .avatar {
   height: 35px;
