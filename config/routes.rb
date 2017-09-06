@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  get 'playlists/index'
+
+  get 'playlists/show'
+
+  get 'playlists/create'
+
+  get 'playlists/edit'
+
+  get 'playlists/update'
+
+  get 'playlists/destroy'
+
   get 'tracks/index'
 
   get 'tracks/show'
