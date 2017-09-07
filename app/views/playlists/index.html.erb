@@ -8,10 +8,8 @@
           <div class="product-arrow"></div>
           <div class='product-count'>95</div>
         </div>
-        <% if playlist.photo? %>
-        <img src= '<%= cl_image_tag playlist.photo.path, width: 200, height: 300, crop: :fill %>' alt="Upload a picture !" class="product-image hidden-xs">
-        <% else %>
-        <img src="http://cdn.99scenes.com/wp-content/uploads/2016/07/swedish-house-mafia.jpg" alt="Upload a picture !" class="product-image hidden-xs">
+        <% if @playlist.photo? %>
+        <img src= '<%= cl_image_tag @playlist.photo.path, width: 200, height: 300, crop: :fill %>' alt="Upload a picture !" class="product-image hidden-xs">
         <% end %>
         <div class='product-body'>
           <h3><%= playlist.name %></h3>
