@@ -14,7 +14,7 @@
 
         <div class="product">
         <% if @playlist.photo? %>
-        <img src= '<%= cl_image_tag @playlist.photo.path, width: 200, height: 300, crop: :fill %>' alt="kudoz" class="product-image hidden-xs">
+        <img src= '<%= cl_image_tag @playlist.photo.path, width: 200, height: 300, crop: :fill %>' alt="Upload a picture !" class="product-image hidden-xs">
         <% end %>
           <div class='product-body'>
             <h3><%= @playlist.name %></h3>
