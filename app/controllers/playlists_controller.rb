@@ -1,6 +1,7 @@
 class PlaylistsController < ApplicationController
   def index
     @playlists = Playlist.all
+    @user = current_user
   end
 
   def new

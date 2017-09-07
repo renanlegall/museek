@@ -2,13 +2,17 @@
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
       <h3>My playlists</h3>
-      <% @playlists.each do |playlist| %>
+      <% @user.playlists.each do |playlist| %>
       <div class="product">
         <div class='product-upvote'>
           <div class="product-arrow"></div>
           <div class='product-count'>95</div>
         </div>
-        <img src="http://cdn.99scenes.com/wp-content/uploads/2016/07/swedish-house-mafia.jpg" alt="kudoz" class="product-image hidden-xs">
+        <% if playlist.photo? %>
+        <img src= '<%= cl_image_tag playlist.photo.path, width: 200, height: 300, crop: :fill %>' alt="Upload a picture !" class="product-image hidden-xs">
+        <% else %>
+        <img src="http://cdn.99scenes.com/wp-content/uploads/2016/07/swedish-house-mafia.jpg" alt="Upload a picture !" class="product-image hidden-xs">
+        <% end %>
         <div class='product-body'>
           <h3><%= playlist.name %></h3>
           <p><%= playlist.description %></p>
@@ -18,6 +22,7 @@
           <li><a href=""><i class="fa fa-share"></i></a></li>
           <li><a href=""><i class="fa fa-star"></i></a></li>
         </ul>
+        <%= link_to "+ Add tracks", playlist_path(playlist), class: "btn btn-primary", id: "playlist"+playlist.id.to_s %>
       </div>
       <% end %>
     </div>
