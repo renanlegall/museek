@@ -3,11 +3,25 @@ class PlaylistsController < ApplicationController
     @playlists = Playlist.all
   end
 
-  def show
+  def new
+    @user = current_user
+    @playlist = Playlist.new
   end
 
   def create
+    @playlist = current_user.playlists.new(playlist_params)
+    if @playlist.save
+      redirect_to playlist_path(@playlist)
+    else
+      render :new
+    end
+    # @playlist = current_user.playlists.new(playlist_params)
+  end
+
+  def show
     @disable_footer = true
+    @user = current_user
+    @playlist = Playlist.find(params[:id])
   end
 
   def edit
@@ -18,4 +32,11 @@ class PlaylistsController < ApplicationController
 
   def destroy
   end
+
+private
+
+def playlist_params
+  params.require(:playlist).permit(:name, :description, :photo)
+end
+
 end

@@ -1,32 +1,15 @@
 Rails.application.routes.draw do
-  get 'playlists/index'
+  devise_for :users,
+    controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  get 'playlists/show'
 
-  get 'playlists/create'
-
-  get 'playlists/edit'
-
-  get 'playlists/update'
-
-  get 'playlists/destroy'
-
-  get 'tracks/index'
-
-  get 'tracks/show'
-
-  get 'tracks/edit'
-
-  get 'tracks/update'
-
-  get 'tracks/destroy'
-
-  get 'tracks/create'
+  resources :playlists, only: [ :index, :new, :create, :show] do
+    resources :tracks, only: [:new, :create, :destroy], shallow: true
+  end
 
   root to: 'pages#home'
 
-    devise_for :users,
-    controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  mount Attachinary::Engine => "/attachinary"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

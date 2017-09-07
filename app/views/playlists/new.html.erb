@@ -1,0 +1,21 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+      <div class="welcome-sentence text-center">
+        <h4>Hello <%= @user.first_name %> <%= @user.last_name %> </h4>
+        <p>You can now create your playlist: </p>
+      </div>
+      <div class="form">
+          <%= simple_form_for @playlist do |f| %>
+            <%= f.input :name, label: "What's the name of your playlist ?" %>
+            <%= f.input :description, label: "Add a description:" %>
+            <label>Upload your playlist's pic ! </label>
+            <%= f.input :photo, as: :attachinary %>
+            <%= f.button :submit, class: 'btn btn-primary' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -16,8 +16,8 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "My playlists", playlists_index_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Create a new playlist", playlists_create_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "My playlists", playlists_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Create a new playlist", new_playlist_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
