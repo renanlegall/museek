@@ -1,4 +1,4 @@
-<div class="navbar-wagon">
+<div class="navbar-wagon <%= yield(:navbar_class)%>">
   <!-- Logo -->
   <div class="logo">
     <%= link_to root_path, class: "navbar-wagon-brand" do %>
@@ -16,8 +16,9 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "My playlists", playlists_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Create a new playlist", new_playlist_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Create a new Playlist", new_playlist_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "My Playlists", playlists_path, class: "navbar-wagon-item navbar-wagon-link" %>
+       <%= link_to "Top Playlists", top_playlists_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">

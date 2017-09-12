@@ -79,7 +79,7 @@
 
 /* Hover effects */
 .product:hover {
-  background: #f7f7fa;
+  background: #b5d6f2;
   cursor: pointer;
 }
 .product-upvote:hover, .product-upvote.product-upvote-upvoted {
@@ -97,4 +97,9 @@
 }
 .product-upvote:hover .product-arrow {
   border-bottom: 9px solid #5898f1;
+}
+
+.container-playlist {
+  min-height: 100%;
+  position: relative;
 }

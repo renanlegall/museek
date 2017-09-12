@@ -4,6 +4,11 @@ class PlaylistsController < ApplicationController
     @user = current_user
   end
 
+  def top
+    @playlists = Playlist.all
+
+  end
+
   def new
     @user = current_user
     @playlist = Playlist.new
