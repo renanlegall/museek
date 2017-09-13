@@ -2,17 +2,16 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-8 col-xs-offset-2">
-      <div class="welcome-sentence text-center">
-        <h4>Hello <%= @user.first_name %> <%= @user.last_name %> </h4>
-        <p>You can now create your own playlist: </p>
-      </div>
       <div class="form">
+      <div class="welcome-sentence text-center">
+        <h2>Hello <%= @user.first_name %> </h2>
+        <h4>You can now create your own playlist: </h4>
+      </div>
           <%= simple_form_for @playlist do |f| %>
             <%= f.input :name, label: "What's the name of your playlist ?" %>
             <%= f.input :description, label: "Add a description:" %>
-            <label>Upload your playlist's pic ! </label>
-            <%= f.input :photo, as: :attachinary %>
-            <%= f.button :submit, class: 'btn btn-primary' %>
+            <%= f.input :photo, as: :attachinary, label: "Upload a playlist picture:"%>
+            <%= f.button :submit, class: 'btn btn-primary center-block' %>
           <% end %>
         </div>
       </div>
