@@ -24,6 +24,10 @@ gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 
+gem 'youtube_search'
+
+gem 'yt', '~> 0.13.7'
+
 
 group :development, :test do
   gem 'pry-byebug'
