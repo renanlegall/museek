@@ -1,35 +1,86 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-6 col-xs-offset-3">
+  <div class="container text-center">
+      <div class="grid">
+        <div class="card-profile element1">
+          <div class="card-content">
+            <div class="form">
+              <h2>Edit my profile</h2>
 
-      <div class="form">
-        <h2>Edit <%= resource_name.to_s.humanize %></h2>
+              <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                <%= f.error_notification %>
 
-        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-          <%= f.error_notification %>
+                <div class="form-inputs">
+                  <%= f.input :email, required: true, autofocus: true %>
 
-          <div class="form-inputs">
-            <%= f.input :email, required: true, autofocus: true %>
+                  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                    <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+                  <% end %>
 
-            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-              <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-            <% end %>
+                  <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
+                  <%= f.input :password_confirmation, required: false %>
+                  <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+                </div>
 
-            <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
-            <%= f.input :password_confirmation, required: false %>
-            <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+                <div class="form-actions">
+                  <%= f.button :submit, "Update", class: "btn btn-primary center-block" %>
+                </div>
+              <% end %>
+
+              <p><%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+              <%= link_to "Back", :back %>
+
+            </div>
           </div>
-
-          <div class="form-actions">
-            <%= f.button :submit, "Update", class: "btn btn-primary center-block" %>
+        </div>
+        <div class="card-profile element2">
+          <div class="card-content">
+            <h3><%= @user.playlists.size.to_i%></h3>
+            <p>playlists</p>
           </div>
+        </div>
+        <div class="card-profile element3">
+          <div class="card-content">
+            <h3>758</h3>
+            <p>tracks</p>
+          </div>
+        </div>
+        <div class="card-profile element4">
+          <div class="card-content">
+            <h3>119</h3>
+            <p>likes</p>
+          </div>
+        </div>
+        <div class="card-profile element5">
+          <div class="card-content">
+            <img src="@user.facebook_picture_url" alt="" width="150" class="img-circle">
+            <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+            <p><b> Museek ambassador </b></p>
+            <% @user.playlists.first(3).each do |playlist| %>
+              <div class="product">
+        <% if playlist.photo? %>
+        <%= cl_image_tag playlist.photo.path, width: 200, height: 100, crop: :fill, class: "product-image hidden-xs"%>
         <% end %>
-
-      <p><%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-      <%= link_to "Back", :back %>
-
+          <div class='product-body'>
+            <h3><%= playlist.name %></h3>
+            <p><%= playlist.description %></p>
+          </div>
+          <ul class="list-inline product-controls hidden-sm hidden-xs">
+            <li><%= image_tag("star.png") %></li>
+            <li><%= image_tag("heart.png") %></li>
+            <li><%= image_tag("plus.png") %></li>
+          </ul>
+        </div>
+            <% end%>
+            <a href="#" class="btn btn-primary btn-primary"> See all my playlists</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+
+
+
+    </div>
 </div>
