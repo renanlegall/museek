@@ -80,7 +80,7 @@
 
 /* Hover effects */
 .product:hover {
-  background: #b5d6f2;
+  background: #aedcff;
   cursor: pointer;
 }
 .product-upvote:hover, .product-upvote.product-upvote-upvoted {
@@ -101,6 +101,7 @@
 }
 
 .container-playlist {
-  min-height: 100%;
+  min-height: 520px;
   position: relative;
+  background-image: url("pattern.png")
 }

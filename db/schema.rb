@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20170914143345) do
+ActiveRecord::Schema.define(version: 20170906143124) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,13 +30,6 @@ ActiveRecord::Schema.define(version: 20170914143345) do
     t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent"
   end
 
-  create_table "chatrooms", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-
-  end
-  
   create_table "playlists", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -77,6 +69,4 @@ ActiveRecord::Schema.define(version: 20170914143345) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "messages", "chatrooms"
-  add_foreign_key "messages", "users"
 end
