@@ -6,31 +6,9 @@
       <% @playlists.each do |playlist| %>
         <div class="product">
 
-            <% if user_signed_in? %>
-              <% if current_user.voted_for?(playlist) %>
-                <%= link_to upvote_path(current_user.upvotes.where(playlist: playlist).first), method: :delete, class: 'product-upvote product-upvoted' do %>
-                  <div class="product-arrow"></div>
-                  <div class='product-count'>
-                    <%= playlist.upvotes.size %>
-                  </div>
-                <% end %>
-              <% else %>
-                <%= link_to upvotes_path(playlist_id: playlist.id), method: :post, class: 'product-upvote' do %>
-                  <div class="product-arrow"></div>
-                  <div class='product-count'>
-                    <%= playlist.upvotes.size %>
-                  </div>
-                <% end %>
-              <% end %>
-
-            <% else %>
-              <div class='product-upvote'>
-                <div class="product-arrow"></div>
-                <div class='product-count'>
-                  <%= playlist.upvotes.size %>
-                </div>
-              </div>
-            <% end %>
+            <div class="upvote-container" id="playlist-<%= playlist.id %>">
+              <%= render 'upvotes/show', playlist: playlist %>
+            </div>
 
 
           <% if playlist.photo? %>
