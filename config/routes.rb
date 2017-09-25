@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     get 'top', to: "playlists#top"
     end
   end
-
+resources :upvotes, only: [ :create, :destroy ]
 
   root to: 'pages#home'
 

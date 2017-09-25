@@ -27,6 +27,7 @@ gem 'coffee-rails'
 gem 'youtube_search'
 
 gem 'yt', '~> 0.13.7'
+gem "simple_calendar", "~> 2.0"
 
 
 group :development, :test do

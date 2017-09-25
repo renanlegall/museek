@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :playlists
   has_many :tracks, through: :playlists
   has_many :messages, dependent: :destroy
+  has_many :upvotes
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
@@ -29,4 +30,7 @@ class User < ApplicationRecord
     return user
   end
 
+  def voted_for?(playlist)
+    playlist.upvotes.where(user: self).any?
+  end
 end
