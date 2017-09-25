@@ -32,12 +32,28 @@ class PlaylistsController < ApplicationController
   end
 
   def edit
+    @user = current_user
+    @playlist = Playlist.find(params[:id])
+    # if @playlist.save
+    #    redirect_to playlists_path
+    # else
+    #  playlists_path
+    # end
   end
 
   def update
+    @playlist = Playlist.find(params[:id])
+    if @playlist.update(playlist_params)
+      redirect_to playlist_path
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @playlist = Playlist.find(params[:id])
+    @playlist.destroy
+    redirect_to playlists_path(@playlist)
   end
 
 private

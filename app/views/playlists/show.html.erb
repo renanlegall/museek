@@ -14,6 +14,11 @@
       <div class="col-xs-12">
 
         <div class="product">
+
+          <div class="upvote-container" id="playlist-<%= @playlist.id %>">
+              <%= render 'upvotes/show', playlist: @playlist %>
+            </div>
+
         <% if @playlist.photo? %>
         <%= cl_image_tag @playlist.photo.path, width: 200, height: 100, crop: :fill, class: "product-image hidden-xs"%>
         <% end %>
@@ -22,9 +27,16 @@
             <p><%= @playlist.description %></p>
           </div>
           <ul class="list-inline product-controls hidden-sm hidden-xs">
-            <li><%= image_tag("star.png") %></li>
-            <li><%= image_tag("heart.png") %></li>
-            <li><%= image_tag("plus.png") %></li>
+            <li>
+              <%= link_to edit_playlist_path(@playlist), method: :get do %>
+              <i class= "fa fa-pencil"></i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to playlist_path(@playlist), method: :delete, data: { confirm: 'Are you sure?'} do %>
+                  <i class="fa fa-trash"></i>
+                <% end %>
+              </li>
           </ul>
         </div>
 

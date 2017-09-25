@@ -2,5 +2,5 @@ class Playlist < ApplicationRecord
   has_many :tracks
   belongs_to :user
   has_attachment :photo
-  has_many :upvotes
+  has_many :upvotes, dependent: :destroy
 end
