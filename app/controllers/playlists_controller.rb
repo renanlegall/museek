@@ -7,7 +7,7 @@ class PlaylistsController < ApplicationController
 
   def top
     @disable_footer = true
-    @playlists = Playlist.all
+    @playlists = Playlist.all.sort_by { |playlist| playlist.upvotes.size }.reverse
   end
 
   def new

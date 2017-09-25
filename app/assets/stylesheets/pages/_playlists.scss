@@ -41,12 +41,24 @@
   font-size: 13px;
   line-height: 20px;
 }
+
+.product-upvoted, a.product-upvote.product-upvoted {
+  color: #5898F1;
+}
+
+.product-upvoted .product-arrow {
+  border-bottom-color: #5898F1;
+}
+
+a.product-upvote {
+  color:black;
+}
 .product-count {
   margin: 2px 0 0;
 }
 .product-arrow {
   transition: all 0.15s ease;
-  width: 0;
+  width: 1px;
   height: 0;
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
@@ -83,6 +95,10 @@
   background: #aedcff;
   cursor: pointer;
 }
+
+a.product-upvote:hover, a.product-upvote:hover {
+text-decoration: none;
+}
 .product-upvote:hover, .product-upvote.product-upvote-upvoted {
   color: #5898f1;
   cursor: pointer;
@@ -103,5 +119,4 @@
 .container-playlist {
   min-height: 520px;
   position: relative;
-  background-image: url("pattern.png")
 }
