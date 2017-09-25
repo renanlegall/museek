@@ -1,2 +1,18 @@
-<h1>Playlists#edit</h1>
-<p>Find me in app/views/playlists/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-lg-8 col-lg-offset-2">
+        <div class="form">
+          <div class="welcome-sentence text-center">
+          <h2>Hey <%= @user.first_name %> </h2>
+          <h4>You can update your playlist here: </h4>
+          </div>
+          <%= simple_form_for @playlist do |f| %>
+            <%= f.input :name, label: "What's the name of your playlist ?" %>
+            <%= f.input :description, label: "Add a description:" %>
+            <%= f.input :photo, as: :attachinary, label: "Upload a playlist picture:"%>
+            <%= f.button :submit, class: 'btn btn-primary center-block' %>
+          <% end %>
+        </div>
+    </div>
+  </div>
+</div>

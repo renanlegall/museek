@@ -121,3 +121,17 @@ text-decoration: none;
   min-height: 520px;
   position: relative;
 }
+
+.title {
+  margin: 15px 10px;
+  display: flex;
+  text-emphasis: bold;
+}
+
+.title-tag {
+padding-left: 30px;
+}
+
+.title-tag h3 {
+  font-size: 35px;
+}

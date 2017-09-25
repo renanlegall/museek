@@ -1,7 +1,14 @@
 <div class="container-playlist">
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
+    <div class="title">
+      <div class="title-image">
+        <%= image_tag "rock.png" %>
+      </div>
+      <div class="title-tag">
       <h3>Top Playlists</h3>
+      </div>
+    </div>
 
       <% @playlists.each do |playlist| %>
         <div class="product">
@@ -16,12 +23,13 @@
           <% end %>
           <div class='product-body'>
             <h3><%= playlist.name %></h3>
+            <h4>from <%= playlist.user.first_name %> <%= playlist.user.last_name %></h4>
             <p><%= playlist.description %></p>
           </div>
           <ul class="list-inline product-controls hidden-sm hidden-xs">
-            <li><%= image_tag("star.png") %></li>
-            <li><%= image_tag("heart.png") %></li>
-            <li><%= image_tag("plus.png") %></li>
+          <li><a href=""><i class="fa fa-heart"></i></a></li>
+          <li><a href=""><i class="fa fa-share"></i></a></li>
+          <li><a href=""><i class="fa fa-star"></i></a></li>
           </ul>
           <%= link_to "Enjoy it", playlist_path(playlist), class: "btn btn-primary", id: "playlist"+playlist.id.to_s %>
         </div>
