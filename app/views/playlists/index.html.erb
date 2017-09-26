@@ -1,6 +1,6 @@
 <div class="container-playlist">
   <div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
+    <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
     <div class="title">
       <div class="title-image">
         <%= image_tag "profile.png" %>
@@ -30,7 +30,7 @@
               <% end %>
             </li>
             <li>
-              <%= link_to playlist_path(playlist), method: :delete, data: { confirm: 'Are you sure?'} do %>
+              <%= link_to playlist_path(playlist), method: :delete, data: { confirm: '🎵 Are you sure ? 🎵'} do %>
                   <i class="fa fa-trash"></i>
                 <% end %>
               </li>

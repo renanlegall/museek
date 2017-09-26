@@ -3,8 +3,15 @@
     <div class="row">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-lg-8 col-lg-offset-2">
       <div class="form">
-      <div class="welcome-sentence text-center">
-        <h2>Hello <%= @user.first_name %> </h2>
+      <div class="welcome-sentence">
+      <div class="title">
+      <div class="title-image">
+        <%= image_tag "add.png" %>
+      </div>
+      <div class="title-tag">
+      <h2>Hello <%= @user.first_name %> </h2>
+      </div>
+    </div>
         <h4>You can now create your own playlist: </h4>
       </div>
           <%= simple_form_for @playlist do |f| %>

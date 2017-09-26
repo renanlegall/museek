@@ -5,7 +5,11 @@
   <div class="banner-content">
       <h1>Free your Sound</h1>
       <p class="subtitle">Create your playlist. Share it with your friends.</p>
+      <% if user_signed_in? %>
+        <a href='<%= playlists_path %>' class="btn btn-lg btn-success btn-home"><span class="glyphicon glyphicon-play-circle"></span> Let's play</a>
+      <% else %>
         <a href='<%= new_user_session_path %>' class="btn btn-lg btn-success btn-home"><span class="glyphicon glyphicon-play-circle"></span> Let's play</a>
+      <% end %>
   </div>
 </div>
 

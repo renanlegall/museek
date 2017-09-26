@@ -1,6 +1,6 @@
 <div class="container-playlist">
   <div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
+    <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
     <div class="title">
       <div class="title-image">
         <%= image_tag "rock.png" %>
@@ -23,7 +23,7 @@
           <% end %>
           <div class='product-body'>
             <h3><%= playlist.name %></h3>
-            <h4>from <%= playlist.user.first_name %> <%= playlist.user.last_name %></h4>
+            <h4>from <%= playlist.user.first_name.capitalize %></h4>
             <p><%= playlist.description %></p>
           </div>
           <ul class="list-inline product-controls hidden-sm hidden-xs">
