@@ -29,6 +29,7 @@ class PlaylistsController < ApplicationController
     @disable_footer = true
     @user = current_user
     @playlist = Playlist.find(params[:id])
+    @track = Track.new
   end
 
   def edit

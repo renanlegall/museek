@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
 
   resources :playlists do
-    resources :tracks, only: [:new, :create, :destroy], shallow: true
+    resources :tracks, shallow: true
     collection do
     get 'top', to: "playlists#top"
     end
