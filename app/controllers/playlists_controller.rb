@@ -1,8 +1,8 @@
 class PlaylistsController < ApplicationController
   def index
     @disable_footer = true
-    @playlists = Playlist.all
     @user = current_user
+    @playlists = Playlist.all
   end
 
   def top
