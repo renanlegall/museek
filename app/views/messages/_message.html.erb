@@ -1,4 +1,4 @@
-<div class="message <%= message.from?(current_user) ? "right" : "" %>">
-  <%= image_tag current_user.facebook_picture_url || "http://placehold.it/30x30" , class: "avatar" %>
+<div class="message <%= user_is_messages_author ? "right" : "" %>">
+  <%= image_tag message.user.facebook_picture_url || "http://placehold.it/30x30" , class: "avatar" %>
   <div class="message-content"><%= message.content %></div>
 </div>
