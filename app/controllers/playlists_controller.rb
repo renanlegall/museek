@@ -28,8 +28,9 @@ class PlaylistsController < ApplicationController
   def show
     @disable_footer = true
     @user = current_user
-    @playlist = Playlist.find(params[:id])
+    @playlist = Playlist.includes(messages: :user).find(params[:id])
     @track = Track.new
+    @avatar_url = @user.facebook_picture_url
   end
 
   def edit
