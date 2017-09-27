@@ -30,7 +30,6 @@ class PlaylistsController < ApplicationController
     @user = current_user
     @playlist = Playlist.includes(messages: :user).find(params[:id])
     @track = Track.new
-    @avatar_url = @user.facebook_picture_url
   end
 
   def edit

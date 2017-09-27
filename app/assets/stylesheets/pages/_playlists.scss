@@ -93,7 +93,7 @@ a.product-upvote {
 
 /* Hover effects */
 .product:hover {
-  background: #E5F8FC;
+  // background: #E5F8FC;
   cursor: pointer;
 }
 
@@ -101,11 +101,11 @@ a.product-upvote:hover, a.product-upvote:hover {
 text-decoration: none;
 }
 .product-upvote:hover, .product-upvote.product-upvote-upvoted {
-  color: #5898f1;
+  color: #1F6ED4;
   cursor: pointer;
 }
 .product-upvote-upvoted .product-arrow {
-  border-bottom-color: #5898f1;
+  border-bottom-color: #1F6ED4;
 }
 // .product:hover .product-upvote {
 //   transform: scale(1.2)
@@ -114,7 +114,7 @@ text-decoration: none;
   color: #E6E6E6;
 }
 .product-upvote:hover .product-arrow {
-  border-bottom: 9px solid #5898f1;
+  border-bottom: 9px solid #1F6ED4;
 }
 
 .container-playlist {
