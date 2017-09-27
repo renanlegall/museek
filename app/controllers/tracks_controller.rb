@@ -3,6 +3,7 @@ class TracksController < ApplicationController
   end
 
   def show
+    @track = Track.find(params[:id])
   end
 
   def create
@@ -10,9 +11,15 @@ class TracksController < ApplicationController
     @track = Track.new(track_params)
     @track.playlist = @playlist
     if @track.save
-      redirect_to playlist_path(@playlist)
+      respond_to do |format|
+        format.html { redirect_to playlist_path(@playlist) }
+        format.js
+      end
     else
-      render 'playlists/show'
+      respond_to do |format|
+        format.html { render 'playlists/show' }
+        format.js
+      end
     end
   end
 
@@ -23,6 +30,9 @@ class TracksController < ApplicationController
   end
 
   def destroy
+    @track = Track.find(params[:id])
+    @track.destroy
+    redirect_to playlist_path(@track.playlist)
   end
 
 
@@ -30,14 +40,5 @@ class TracksController < ApplicationController
 
   def track_params
     params.require(:track).permit(:name)
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
   end
 end
