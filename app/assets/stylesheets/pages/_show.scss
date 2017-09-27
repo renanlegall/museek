@@ -2,19 +2,20 @@
   position: absolute;
   top: 70px;
   right: 0;
-  left: 400px;
+  left: 450px;
   bottom: 2em;
   padding: 0 2em;
   height: 100%;
   padding-top: 10px;
+  border-left: 5px solid #FDFDFF;
 }
 
 .playlist {
-  position: absolute;
+  position: fixed;
+  overflow-y: scroll;
   top: 70px;
   bottom: 0;
-  width: 400px;
-  border-right: 5px solid #FDFDFF;
+  width: 450px;
   padding-top: 10px;
   overflow: auto;
   z-index: 1;

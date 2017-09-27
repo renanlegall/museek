@@ -49,14 +49,14 @@
         </div>
         <div class="card-profile element3">
           <div class="card-content">
-            <h3>758</h3>
+            <h3><%= @user.tracks.size.to_i %></h3>
             <p>tracks</p>
           </div>
         </div>
         <div class="card-profile element4">
           <div class="card-content">
-            <h3>119</h3>
-            <p>likes</p>
+            <h3><%= @user.upvotes.size.to_i%></h3>
+            <p>upvotes</p>
           </div>
         </div>
         <div class="card-profile element5">

@@ -1,0 +1,4 @@
+<%= simple_form_for([ @playlist, @track ]) do |f| %>
+            <%= f.input :name, label: "What's the url of your track ?" %>
+            <%= f.button :submit, class: 'btn btn-primary center-block' %>
+          <% end %>
