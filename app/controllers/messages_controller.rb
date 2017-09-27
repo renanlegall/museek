@@ -5,16 +5,13 @@ class MessagesController < ApplicationController
     @message.playlist = @playlist
     @message.user = current_user
     if @message.save
-      ActionCable.server.broadcast("playlist_#{@playlist.id}", {
-        message: @message.to_json
-        })
       respond_to do |format|
         format.html { redirect_to playlist_path(@playlist) }
         format.js
       end
     else
       respond_to do |format|
-        format.html { render "playlist/show" }
+        format.html { render "playlists/show" }
         format.js
       end
     end
