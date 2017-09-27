@@ -2,7 +2,14 @@
   <div class="row">
   <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-lg-8 col-lg-offset-2">
     <div class="form">
-      <h2>Sign up</h2>
+    <div class="title">
+      <div class="title-image">
+        <%= image_tag "dj.png" %>
+      </div>
+      <div class="title-tag">
+      <h2>Sign up : Welcome !</h2>
+      </div>
+    </div>
 
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>

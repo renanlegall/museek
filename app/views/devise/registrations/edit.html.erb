@@ -61,9 +61,15 @@
         </div>
         <div class="card-profile element5">
           <div class="card-content">
-            <img src="@user.facebook_picture_url" alt="" width="150" class="img-circle">
-            <h2><%= @user.first_name %> <%= @user.last_name %></h2>
-            <p><b> Museek ambassador </b></p>
+            <div class="card-info">
+              <div class=card-pic>
+                <%= image_tag @user.facebook_picture_url || "presley.jpg" , class: "card-avatar" %>
+              </div>
+              <div class=card-badge>
+                <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+                <p><b> Museek ambassador </b></p>
+              </div>
+            </div>
             <% @user.playlists.first(3).each do |playlist| %>
               <div class="product">
         <% if playlist.photo? %>

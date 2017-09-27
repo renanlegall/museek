@@ -45,5 +45,20 @@
   // background-image: url("pattern.png");
 }
 
+.card-info {
+  display:flex;
+  align-items: center;
+  margin: 10px 120px;
+}
+
+.card-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.card-badge {
+  padding-left: 30px;
+}
 
 
