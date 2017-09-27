@@ -1,4 +1,6 @@
+
 .messages-container {
+  height: 100vh;
   position: absolute;
   top: 70px;
   right: 0;
@@ -6,7 +8,7 @@
   bottom: 2em;
   padding: 0 2em;
   height: 100%;
-  padding-top: 10px;
+  padding-top: 15px;
   border-left: 5px solid #FDFDFF;
 }
 
@@ -16,7 +18,7 @@
   top: 70px;
   bottom: 0;
   width: 450px;
-  padding-top: 10px;
+  padding-top: 15px;
   overflow: auto;
   z-index: 1;
   height: 100%;
@@ -33,6 +35,10 @@
 
 .container-playlist {
   min-height: 500px;
+}
+
+.wrapper-playlist {
+  height: 100vh;
 }
 
 .product {

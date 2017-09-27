@@ -21,6 +21,7 @@
         <% end %>
         <div class='product-body'>
           <h3><%= playlist.name %></h3>
+          <h4><%= playlist.tracks.size.to_i %> tracks</h4>
           <p><%= playlist.description %></p>
         </div>
           <ul class="list-inline product-controls hidden-sm hidden-xs">
@@ -38,7 +39,7 @@
         <%= link_to "Add tracks", playlist_path(playlist), class: "btn btn-primary", id: "playlist"+playlist.id.to_s %>
         </div>
       <% end %>
+    </div>
   </div>
-</div>
 </div>
 
