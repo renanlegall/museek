@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'messages/create'
+
   get 'chatrooms/show'
 
   devise_for :users,
@@ -8,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :playlists do
     resources :tracks, shallow: true
+    resources :messages, only: [ :create ]
     collection do
     get 'top', to: "playlists#top"
     end

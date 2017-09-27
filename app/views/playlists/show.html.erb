@@ -58,12 +58,23 @@
               </li>
           </ul>
         </div>
+      </div>
 
-        <p><%= @user.first_name %>, share with your friends: </p>
+        <div class="chatroom">
+          <div class="col-sm-10 col-sm-offset-1">
+            <div class="chat-header"><h4>#Chat with <%= @user.first_name %></h4></div>
+            <div class="messages">
+              <% @playlist.messages.each do |message| %>
+                <%= render "messages/message", message: message %>
+              <% end %>
+            </div>
+            <div id="create-message">
+              <%= simple_form_for [ @playlist, Message.new ], remote: true do |f| %>
+                <%= f.input :content, label: false %>
+              <% end %>
+            </div>
+          </div>
+          </div>
+        </div>
       </div>
-      <div class="new-message-container">
-        <input type="text" class="new-message-field" placeholder="Start chatting here ...">
-        <input type="submit" value="Send" class="btn btn-primary btn-primary"">
-      </div>
-    </div>
-</div>
+

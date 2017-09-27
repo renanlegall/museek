@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170926155926) do
+ActiveRecord::Schema.define(version: 20170927133702) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,16 @@ ActiveRecord::Schema.define(version: 20170926155926) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.bigint "playlist_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["playlist_id"], name: "index_messages_on_playlist_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "playlists", force: :cascade do |t|
@@ -77,10 +87,13 @@ ActiveRecord::Schema.define(version: 20170926155926) do
     t.string "last_name"
     t.string "token"
     t.datetime "token_expiry"
+    t.string "avatar_url"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "messages", "playlists"
+  add_foreign_key "messages", "users"
   add_foreign_key "tracks", "playlists"
   add_foreign_key "upvotes", "playlists"
   add_foreign_key "upvotes", "users"
