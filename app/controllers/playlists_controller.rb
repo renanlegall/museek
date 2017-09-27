@@ -30,6 +30,7 @@ class PlaylistsController < ApplicationController
     @user = current_user
     @playlist = Playlist.find(params[:id])
     @track = Track.new
+
   end
 
   def edit
