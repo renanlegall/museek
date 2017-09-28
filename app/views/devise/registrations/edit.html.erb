@@ -64,7 +64,11 @@
           <div class="card-content">
             <div class="card-info">
               <div class=card-pic>
-                <%= image_tag @user.facebook_picture_url || "presley.jpg" , class: "card-avatar" %>
+                <% if @user.photo? %>
+                  <%= cl_image_tag @user.photo.path, class: "card-avatar"%>
+                <% else %>
+                  <%= image_tag @user.facebook_picture_url || "presley.jpg", class: "card-avatar" %>
+                <% end %>
               </div>
               <div class=card-badge>
                 <h2><%= @user.first_name %> <%= @user.last_name %></h2>
@@ -81,7 +85,7 @@
               </div>
             </div>
             <% @user.playlists.first(3).each do |playlist| %>
-              <div class="product">
+              <div class="profile-product">
         <% if playlist.photo? %>
         <%= cl_image_tag playlist.photo.path, width: 200, height: 100, crop: :fill, class: "product-image hidden-xs"%>
         <% end %>
@@ -101,4 +105,3 @@
 
 
     </div>
-</div>
