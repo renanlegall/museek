@@ -23,6 +23,7 @@
                   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
                     <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
                   <% end %>
+                  <%= f.input :photo, as: :attachinary, label: "Upload your profile photo:"%>
 
                   <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
                   <%= f.input :password_confirmation, required: false %>
@@ -67,7 +68,16 @@
               </div>
               <div class=card-badge>
                 <h2><%= @user.first_name %> <%= @user.last_name %></h2>
-                <p><b> Museek ambassador </b></p>
+                  <% if @user.playlists.size.to_i > 0 && @user.tracks.size.to_i > 0 && @user.upvotes.size.to_i > 0 %>
+                    <%= image_tag "radio.png", class: "card-icon" %>
+                    <p><b> Tracklist lover </b></p>
+                  <% elsif @user.playlists.size.to_i > 3 && @user.tracks.size.to_i > 10 && @user.upvotes.size.to_i > 3 %>
+                    <%= image_tag "cassette.png", class: "card-icon" %>
+                    <p><b> Museek ambassador </b></p>
+                  <% elsif @user.playlists.size.to_i > 5 && @user.tracks.size.to_i > 50 && @user.upvotes.size.to_i > 10 %>
+                    <%= image_tag "platine.png", class: "card-icon" %>
+                    <p><b> DJ of the Year </b></p>
+                  <% end %>
               </div>
             </div>
             <% @user.playlists.first(3).each do |playlist| %>
