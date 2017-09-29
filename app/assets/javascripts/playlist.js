@@ -1,7 +1,5 @@
-var counter = 0;
-
-$(".product-arrow").click(function(){
-  counter++;
-  $(".product-count", this).text(counter);
+$('.chat-header').on('click', function(event) {
+$(this).hide();
 });
+
 

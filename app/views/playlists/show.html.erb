@@ -2,7 +2,7 @@
     <div class="playlist">
       <div class="col-xs-10 col-xs-offset-1">
       <% if @playlist.user == current_user %>
-      <p><%= @user.first_name %>, You can now create your playlist via Soundcloud: </p>
+      <p><%= @user.first_name %>, You can now create your playlist via <a href="https://soundcloud.com/" target="_blank">Soundcloud</a> : </p>
          <%= render 'tracks/form' %>
       <% else %>
       <p>Discover <%= @playlist.user.first_name %>'s tracklist !</p>
@@ -18,7 +18,7 @@
           <small>Sean Paul </small>
         </h2> -->
         <div class="product">
-          <iframe width="100%" height="140" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=<%= track.name %>&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+          <iframe width="100%" height="100" scrolling="yes" frameborder="yes" src="https://w.soundcloud.com/player/?url=<%= track.name %>&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
           <ul class="list-inline product-controls hidden-sm hidden-xs">
             <% if @playlist.user == current_user %>
             <li>
@@ -50,25 +50,30 @@
           <div class='product-body'>
             <h3><%= @playlist.name %></h3>
             <h4><%= @playlist.tracks.size.to_i %> tracks</h4>
-            <p><%= @playlist.description %></p>
-          </div>
-          <ul class="list-inline product-controls hidden-sm hidden-xs">
             <% if @playlist.user == current_user %>
+              <div class="input-group">
+                    <input id='link' type="text" class="input-museek" placeholder="localhost:3000/playlists/<%= @playlist.id %>" readonly="readonly">
+                    <button class="btn btn-primary btn-primary" type="button" onclick="copyToClipboard('#link'); clipboardNotice()">Copy link</button>
+              </div>
+            <% else %>
+              <p><%= @playlist.description %></p>
+            <% end %>
+          </div>
+            <% if @playlist.user == current_user %>
+            <ul class="list-inline product-controls hidden-sm hidden-xs">
             <li>
               <%= link_to edit_playlist_path(@playlist), method: :get do %>
               <i class= "fa fa-pencil"></i>
               <% end %>
             </li>
-            <% end %>
-            <% if @playlist.user == current_user %>
             <li>
               <%= link_to playlist_path(@playlist), method: :delete, data: { confirm: "🎵 Are you sure ? 🎵"} do %>
                   <i class="fa fa-trash"></i>
                 <% end %>
               </li>
-            <% end %>
-          </ul>
+              </ul>
         </div>
+        <% end %>
       </div>
 
         <div class="chatroom">
@@ -86,7 +91,7 @@
             </div>
             <div id="create-message">
               <%= simple_form_for [ @playlist, Message.new ], remote: true do |f| %>
-                <%= f.input :content, label: false %>
+                <%= f.input :content, label: false, placeholder: "Type your message ..." %>
               <% end %>
             </div>
           </div>
@@ -106,6 +111,16 @@
         }
       }
     })
+  </script>
+
+  <script>
+    function copyToClipboard(element) {
+      var $temp = $("<input>");
+      $("body").append($temp);
+      $temp.val($(element).attr('placeholder')).select();
+      document.execCommand("copy");
+      $temp.remove();
+    }
   </script>
 <% end %>
 

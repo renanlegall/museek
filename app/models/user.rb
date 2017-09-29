@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :tracks, through: :playlists
   has_many :messages, dependent: :destroy
   has_many :upvotes
+  has_attachment :photo
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
