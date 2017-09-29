@@ -47,3 +47,26 @@
 .chatroom {
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
+
+.chat-header {
+  border-radius: 2px;
+}
+
+#create-message {
+  border-radius: 3px;
+}
+
+.input-museek {
+  padding: 6px 12px;
+  border-radius: 4px !important;
+  border: 1px solid $blue;
+  margin-right: 3px;
+  width: 100%;
+  max-width: 250px;
+}
+
+.input-group {
+  display: flex;
+  justify-content: center;
+}
+
