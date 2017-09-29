@@ -18,7 +18,9 @@
             <%= f.input :name, label: "What's the name of your playlist ?" %>
             <%= f.input :description, label: "Add a description:" %>
             <%= f.input :photo, as: :attachinary, label: "Upload a playlist picture:"%>
-            <%= f.button :submit, class: 'btn btn-primary center-block' %>
+            <button type="submit" class="btn btn-primary center-block">
+              <i class="fa fa-plus-circle"></i> Create your playlist
+            </button>
           <% end %>
         </div>
       </div>

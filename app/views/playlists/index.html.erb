@@ -36,7 +36,9 @@
                 <% end %>
               </li>
           </ul>
-        <%= link_to "Add tracks", playlist_path(playlist), class: "btn btn-primary", id: "playlist"+playlist.id.to_s %>
+        <%= link_to playlist_path(playlist), class: "btn btn-primary", id: "playlist"+playlist.id.to_s do %>
+          <i class="fa fa-plus-circle"></i> Add Tracks
+        <% end %>
         </div>
       <% end %>
     </div>

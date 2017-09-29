@@ -49,11 +49,11 @@
         <% end %>
           <div class='product-body'>
             <h3><%= @playlist.name %></h3>
-            <h4><%= @playlist.tracks.size.to_i %> tracks</h4>
+            <h4>Send your playlist to your friends: </h4>
             <% if @playlist.user == current_user %>
               <div class="input-group">
                     <input id='link' type="text" class="input-museek" placeholder="localhost:3000/playlists/<%= @playlist.id %>" readonly="readonly">
-                    <button class="btn btn-primary btn-primary" type="button" onclick="copyToClipboard('#link'); clipboardNotice()">Copy link</button>
+                    <button class="btn btn-primary btn-primary" type="button" onclick="copyToClipboard('#link'); clipboardNotice()"><i class= "fa fa-link"></i> Copy link</button>
               </div>
             <% else %>
               <p><%= @playlist.description %></p>
