@@ -52,7 +52,7 @@
             <h4>Send your playlist to your friends: </h4>
             <% if @playlist.user == current_user %>
               <div class="input-group">
-                    <input id='link' type="text" class="input-museek" placeholder="localhost:3000/playlists/<%= @playlist.id %>" readonly="readonly">
+                    <input id='link' type="text" class="input-museek" placeholder="museek-app.herokuapp.com/playlists/<%= @playlist.id %>" readonly="readonly">
                     <button class="btn btn-primary btn-primary" type="button" onclick="copyToClipboard('#link'); clipboardNotice()"><i class= "fa fa-link"></i> Copy link</button>
               </div>
             <% else %>
