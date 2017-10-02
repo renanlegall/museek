@@ -8,9 +8,9 @@
       <h1>Share music. Be Happy.</h1>
       <p class="subtitle">Create your playlist via all platforms and send it to your friends.</p>
       <% if user_signed_in? %>
-        <a href='<%= playlists_path %>' class="btn btn-green btn-success btn-home"><span class="glyphicon glyphicon-play-circle"></span> Let's play</a>
+        <a href='<%= new_playlist_path %>' class="btn btn-green btn-success btn-home"> Add a playlist</a>
       <% else %>
-        <a href='<%= new_user_session_path %>' class="btn btn-green btn-success"><span class="glyphicon glyphicon-play-circle"></span> Let's play</a>
+        <a href='<%= new_user_session_path %>' class="btn btn-green btn-success"> Start to play</a>
       <% end %>
   </div>
 </div>
