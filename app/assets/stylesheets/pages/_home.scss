@@ -48,12 +48,12 @@
 /* SECOND PART OF THE HOME */
 
 
-.hashtags h2 {
-  font-weight: bold;
-  font-size: 40px;
-  font-family: quicksand;
-  margin-bottom: 20px;
-}
+// .hashtags h2 {
+//   font-weight: bold;
+//   font-size: 40px;
+//   font-family: quicksand;
+//   margin-bottom: 20px;
+// }
 
 .block {
   padding: 30px 30px;
@@ -103,7 +103,6 @@
   right: 0;
   width: 100%;
   z-index: 2;
-  background: black;
   opacity: 0;
 }
 .card-link:hover {
@@ -111,7 +110,6 @@
 }
 
 .playlist-top {
-  margin-top: 10px;
 }
 
 .card-image {
@@ -137,3 +135,28 @@
     text-transform: uppercase;
     white-space: normal;
 }
+
+.block {
+  margin-left: 20px;
+  color: white;
+  h2 {
+    font-size: 68px;
+  }
+  h3 {
+    font-size: 36px;
+  }
+  p{
+    font-size: 20px;
+  }
+}
+
+.cover {
+  box-shadow: 0 0 0px rgba(0,0,0,0.6);
+  margin: 50px 25px;
+}
+
+.container-home {
+  background-color: #21D4FD;
+background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
+}
+

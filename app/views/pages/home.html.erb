@@ -16,52 +16,22 @@
 </div>
 
 <div class="hashtags">
-  <div class="container">
-    <div class="row text-center">
-      <div class="col-sm-4 col-xs-12">
+  <div class="container-home">
+    <div class="row">
+      <div class="col-sm-7 col-md-5">
           <div class="block">
-          <h2>#experience</h2>
+          <h2>What's on Museek ? </h2>
+          <h3>#Experience</h3>
           <p>Build your <b>own playlist</b>  and access it whenever you want.</p>
-          </div>
-      </div>
-      <div class="col-sm-4 col-xs-12">
-        <div class="block">
-          <h2>#share</h2>
+          <h3>#Share</h3>
           <p>Invite your <b>friends</b> to listen your tracks and <b>chat</b> directly with them.</p>
-        </div>
-      </div>
-      <div class="col-sm-4 col-xs-12">
-        <div class="block">
-          <h2>#music</h2>
+          <h3>#Music</h3>
           <p>Be part of a <b>community</b> of music lovers and <b>discover</b> new tracklists.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row text-center">
-      <div class="col-xs-12">
-        <h2> PLAYLISTS OF THE MONTH </h2>
-        <div class="playlist-top">
-          <div class="row">
-          <% @playlists.sort_by { |playlist| playlist.upvotes.size}.first(3).each do |playlist|%>
-            <div class="col-xs-12 col-sm-4">
-                <div class="card">
-                <div class="card-img">
-                  <% if playlist.photo? %>
-                  <%= cl_image_tag playlist.photo.path, class: "card-image hidden-xs"%>
-                  <% end %>
-                </div>
-                <div class="card-category"><%= playlist.user.first_name %></div>
-                <div class="card-description">
-                  <h2><%= playlist.name %></h2>
-                  <p><%= playlist.description %></p>
-                </div>
-                <a class="card-link" href="<%= playlist_path(playlist) %>" ></a>
-              </div>
-            </div>
-          <% end %>
           </div>
+      </div>
+      <div class="col-sm-4 col-sm-offset-1 col-md-6">
+        <div class="cover">
+        <%= image_tag "major.jpg", width: 550, height: 550, crop: :fill %>
         </div>
       </div>
     </div>
