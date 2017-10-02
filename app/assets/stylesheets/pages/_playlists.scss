@@ -142,3 +142,19 @@ padding-left: 30px;
 .title-tag h3 {
   font-size: 35px;
 }
+
+
+.btn-circle {
+    font-size: 14px;
+    // font-weight: bold;
+    line-height: 1;
+    border-radius: 30px;
+    padding: 18px 5px 16px;
+    transition-property: background-color,border-color,color,box-shadow,filter;
+    transition-duration: .3s;
+    border-width: 0;
+    letter-spacing: 2px;
+    min-width: 150px;
+    text-transform: uppercase;
+    white-space: normal;
+}
