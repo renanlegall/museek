@@ -9,7 +9,8 @@
       <h3>My playlists</h3>
       </div>
     </div>
-      <% @user.playlists.each do |playlist| %>
+    <% if @user.playlists.any? %>
+    <% @user.playlists.each do |playlist| %>
       <div class="product">
 
         <div class="upvote-container" id="playlist-<%= playlist.id %>">
@@ -41,6 +42,9 @@
         <% end %>
         </div>
       <% end %>
+    <% else %>
+      <a href='<%= new_playlist_path %>' class='btn btn-success btn-circle center-block'><span class='glyphicon glyphicon-plus'></span> Create your first playlist !</a>
+    <% end %>
     </div>
   </div>
 </div>
