@@ -4,10 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
 
-  has_many :playlists
-  has_many :tracks, through: :playlists
+  has_many :playlists, dependent: :destroy
+  has_many :tracks, through: :playlists, dependent: :destroy
   has_many :messages, dependent: :destroy
-  has_many :upvotes
+  has_many :upvotes, dependent: :destroy
   has_attachment :photo
 
   def self.find_for_facebook_oauth(auth)
