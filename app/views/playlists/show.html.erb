@@ -49,13 +49,14 @@
         <% end %>
           <div class='product-body'>
             <h3><%= @playlist.name %></h3>
-            <h4>Send your playlist to your friends: </h4>
             <% if @playlist.user == current_user %>
+            <h4>Send your playlist to your friends: </h4>
               <div class="input-group">
                     <input id='link' type="text" class="input-museek" placeholder="museek-app.herokuapp.com/playlists/<%= @playlist.id %>" readonly="readonly">
                     <button class="btn btn-primary btn-primary" type="button" onclick="copyToClipboard('#link'); clipboardNotice()"><i class= "fa fa-link"></i> Copy link</button>
               </div>
             <% else %>
+              <h4><%= @playlist.tracks.size.to_i %> tracks</h4>
               <p><%= @playlist.description %></p>
             <% end %>
           </div>
@@ -85,6 +86,10 @@
             <div class="chat-header"><h4>#Chat with <%= @playlist.user.first_name %></h4></div>
           <% end %>
             <div class="messages">
+              <div class="message right" >
+                <%= image_tag @playlist.user.facebook_picture_url || "presley.jpg" , class: "avatar" %>
+                <div class="message-content">Enjoy my playlist guys !</div>
+              </div>
               <% @playlist.messages.each do |message| %>
                 <%= render "messages/message", message: message, user_is_messages_author: message.user == current_user %>
               <% end %>
