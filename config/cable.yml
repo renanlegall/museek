@@ -6,5 +6,4 @@ test:
 
 production:
   adapter: redis
-  url: <%= ENV['http://museek-app.herokuapp.com']%>
-  channel_prefix: museek_production
+  url: redis://redistogo:5294d5e91e3d30e45ffe1cb3e8c28707@jack.redistogo.com:10927/
