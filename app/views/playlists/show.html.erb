@@ -50,6 +50,24 @@
 
       <% end %>
 
+      <% if track.name.include? "youtube"  %>
+        <div class="product">
+          <iframe id="player" type="text/html" width="640" height="100"
+          src="<%= track.name.gsub('watch?v=', 'embed/') %>"
+            frameborder="0"></iframe>
+          <ul class="list-inline product-controls hidden-sm hidden-xs">
+            <% if @playlist.user == current_user %>
+            <li>
+              <%= link_to track_path(track), method: :delete, data: { confirm: 'Are you sure?'} do %>
+                    <i class="fa fa-trash"></i>
+              <% end %>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+
+      <% end %>
+
       <% end %>
     </div>
   </div>
