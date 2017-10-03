@@ -32,13 +32,15 @@
   height: 130px;
   border-radius: 50%;
   transition-duration: .15s;
-  position: absolute;
+  position: relative;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 0.5px solid;
-  right: 130px;
-  top: 20px;
+  // right: 145px;
+  top: 50px;
 }
 .card-info {
-  position: relative;
-  left: 80px;
+  // position: relative;
+  // left: 80px;
+  margin-top: 28px;
+  margin-left: 20px;
 }

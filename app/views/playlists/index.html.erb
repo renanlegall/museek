@@ -9,7 +9,9 @@
     </div>
     <div class="card-info">
       <h1><%= @user.first_name %> <%= @user.last_name %></h1>
-          <% if @user.playlists.size.to_i > 0 && @user.tracks.size.to_i > 0 && @user.upvotes.size.to_i > 0 %>
+          <% if @user.playlists.empty? && @user.tracks.empty? && @user.upvotes.empty? %>
+          <p><i class="fa fa-user" aria-hidden="true"></i><b> Museek Beginner </b></p>
+          <% elsif @user.playlists.size.to_i > 0 && @user.tracks.size.to_i > 0 && @user.upvotes.size.to_i > 0 %>
             <p><i class="fa fa-user" aria-hidden="true"></i><b> Tracklist lover </b></p>
           <% elsif @user.playlists.size.to_i > 3 && @user.tracks.size.to_i > 10 && @user.upvotes.size.to_i > 3 %>
           <p><i class="fa fa-user" aria-hidden="true"></i><b> Museek ambassador </b></p>
