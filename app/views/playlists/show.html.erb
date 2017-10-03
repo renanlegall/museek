@@ -66,6 +66,23 @@
 
       <% end %>
 
+      <% if track.name.include? "deezer"  %>
+        <div class="product">
+          <iframe scrolling="no" frameborder="0" allowTransparency="true"
+          src="https://www.deezer.com/plugins/player?format=classic&autoplay=false&playlist=true&width=300&height=100&color=007FEB&layout=dark&size=medium&type=album&id=<%= track.name.gsub("http://www.deezer.com/fr/album/", "") %>&app_id=1" width="300" height="100"></iframe>
+          <ul class="list-inline product-controls hidden-sm hidden-xs">
+            <% if @playlist.user == current_user %>
+            <li>
+              <%= link_to track_path(track), method: :delete, data: { confirm: 'Are you sure?'} do %>
+                    <i class="fa fa-trash"></i>
+              <% end %>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+
+      <% end %>
+
       <% end %>
     </div>
   </div>
@@ -161,4 +178,3 @@
     }
   </script>
 <% end %>
-
