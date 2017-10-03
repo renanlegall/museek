@@ -1,0 +1,125 @@
+.product {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-radius: 3px;
+  transition: all 0.15s ease;
+  background-color: white;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+/* Body design */
+.product-body {
+  flex: 1 1 auto;
+}
+.product-body h3 {
+  font-weight: bold;
+  font-size: 24px;
+  margin-top: 0;
+}
+
+.product-body h4 {
+  font-size: 18px;
+  margin-top: 0;
+  color: #39BAE8;
+}
+.product-body p {
+  font-weight: lighter;
+  color: #999999;
+  margin-bottom: 0;
+  font-size: 15px;
+}
+
+/* Product image */
+.product-image {
+  border-radius: 5px;
+  margin-right: 20px;
+  width: 175px;
+}
+
+/* Upvote design */
+.product-upvote {
+  display: inline-block;
+  padding-right: 20px;
+  text-align: center;
+  transition: all 0.15s ease;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.product-upvoted, a.product-upvote.product-upvoted {
+  color: #5898F1;
+}
+
+.product-upvoted .product-arrow {
+  border-bottom-color: #5898F1;
+}
+
+a.product-upvote {
+  color:black;
+}
+.product-count {
+  margin: 2px 0 0;
+}
+.product-arrow {
+  transition: all 0.15s ease;
+  width: 1px;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid transparent;
+  border-bottom: 9px solid black;
+  border-radius: 2px;
+  margin: auto;
+}
+
+/* Controls design */
+.product-controls {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 0px;
+}
+.product-controls a {
+  padding: 0 20px;
+  font-size: 17px;
+  color: #E6E6E6;
+}
+.product-controls a:hover {
+  color: #D3473C !important
+}
+.product-controls-hidden a {
+  color: transparent;
+  font-size: 15px;
+  transition: all 0.15s ease;
+  border-color: transparent;
+}
+
+/* Hover effects */
+.product:hover {
+  // background: #E5F8FC;
+  cursor: pointer;
+}
+
+a.product-upvote:hover, a.product-upvote:hover {
+text-decoration: none;
+}
+.product-upvote:hover, .product-upvote.product-upvote-upvoted {
+  color: #1F6ED4;
+  cursor: pointer;
+}
+.product-upvote-upvoted .product-arrow {
+  border-bottom-color: #1F6ED4;
+}
+// .product:hover .product-upvote {
+//   transform: scale(1.2)
+// }
+.product:hover .product-controls-hidden a {
+  color: #E6E6E6;
+}
+.product-upvote:hover .product-arrow {
+  border-bottom: 9px solid #1F6ED4;
+}

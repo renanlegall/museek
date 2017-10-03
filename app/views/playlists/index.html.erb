@@ -1,3 +1,15 @@
+<div class="banner-playlist" style="background-position: center ; background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://static.pexels.com/photos/332688/pexels-photo-332688.jpeg');">
+  <div class="banner-content-playlist text-center">
+    <div class=card-pic>
+      <% if @user.photo? %>
+        <%= cl_image_tag @user.photo.path, class: "card-avatar"%>
+      <% else %>
+        <%= image_tag @user.facebook_picture_url || "presley.jpg", class: "card-avatar" %>
+      <% end %>
+    </div>
+    <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+  </div>
+</div>
 <div class="container-playlist">
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
@@ -48,4 +60,3 @@
     </div>
   </div>
 </div>
-
