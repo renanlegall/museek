@@ -1,8 +1,8 @@
 <div class="profile-container">
   <div class="row">
-  <div class="container text-center">
-      <div class="grid">
-        <div class="card-profile element1">
+  <div class="container">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
+        <div class="card-profile">
           <div class="card-content">
             <div class="form">
             <div class="title">
@@ -42,66 +42,7 @@
             </div>
           </div>
         </div>
-        <div class="card-profile element2">
-          <div class="card-content">
-            <h3><%= @user.playlists.size.to_i%></h3>
-            <p>playlists</p>
-          </div>
-        </div>
-        <div class="card-profile element3">
-          <div class="card-content">
-            <h3><%= @user.tracks.size.to_i %></h3>
-            <p>tracks</p>
-          </div>
-        </div>
-        <div class="card-profile element4">
-          <div class="card-content">
-            <h3><%= @user.upvotes.size.to_i%></h3>
-            <p>upvotes</p>
-          </div>
-        </div>
-        <div class="card-profile element5">
-          <div class="card-content">
-            <div class="card-info">
-              <div class=card-pic>
-                <% if @user.photo? %>
-                  <%= cl_image_tag @user.photo.path, class: "card-avatar"%>
-                <% else %>
-                  <%= image_tag @user.facebook_picture_url || "presley.jpg", class: "card-avatar" %>
-                <% end %>
-              </div>
-              <div class=card-badge>
-                <h2><%= @user.first_name %> <%= @user.last_name %></h2>
-                  <% if @user.playlists.size.to_i > 0 && @user.tracks.size.to_i > 0 && @user.upvotes.size.to_i > 0 %>
-                    <%= image_tag "radio.png", class: "card-icon" %>
-                    <p><b> Tracklist lover </b></p>
-                  <% elsif @user.playlists.size.to_i > 3 && @user.tracks.size.to_i > 10 && @user.upvotes.size.to_i > 3 %>
-                    <%= image_tag "cassette.png", class: "card-icon" %>
-                    <p><b> Museek ambassador </b></p>
-                  <% elsif @user.playlists.size.to_i > 5 && @user.tracks.size.to_i > 50 && @user.upvotes.size.to_i > 10 %>
-                    <%= image_tag "platine.png", class: "card-icon" %>
-                    <p><b> DJ of the Year </b></p>
-                  <% end %>
-              </div>
-            </div>
-            <% @user.playlists.first(3).each do |playlist| %>
-              <div class="profile-product">
-        <% if playlist.photo? %>
-        <%= cl_image_tag playlist.photo.path, width: 200, height: 100, crop: :fill, class: "product-image hidden-xs"%>
-        <% end %>
-          <div class='product-body'>
-            <h3><%= playlist.name %></h3>
-            <p><%= playlist.description %></p>
-          </div>
-        </div>
-            <% end%>
-            <%= link_to "See all my playlists", playlists_path, class: "btn btn-primary" %>
-          </div>
-        </div>
       </div>
     </div>
   </div>
-
-
-
-    </div>
+</div>

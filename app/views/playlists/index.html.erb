@@ -1,25 +1,45 @@
 <div class="banner-playlist" style="background-position: center ; background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://static.pexels.com/photos/332688/pexels-photo-332688.jpeg');">
-  <div class="banner-content-playlist text-center">
-    <div class=card-pic>
+  <div class="banner-content-playlist">
+    <div class=card-picture>
       <% if @user.photo? %>
         <%= cl_image_tag @user.photo.path, class: "card-avatar"%>
       <% else %>
         <%= image_tag @user.facebook_picture_url || "presley.jpg", class: "card-avatar" %>
       <% end %>
     </div>
-    <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+    <div class="card-info">
+      <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+          <% if @user.playlists.size.to_i > 0 && @user.tracks.size.to_i > 0 && @user.upvotes.size.to_i > 0 %>
+            <p><i class="fa fa-user" aria-hidden="true"></i><b> Tracklist lover </b></p>
+          <% elsif @user.playlists.size.to_i > 3 && @user.tracks.size.to_i > 10 && @user.upvotes.size.to_i > 3 %>
+          <p><i class="fa fa-user" aria-hidden="true"></i><b> Museek ambassador </b></p>
+          <% elsif @user.playlists.size.to_i > 5 && @user.tracks.size.to_i > 50 && @user.upvotes.size.to_i > 10 %>
+          <p><i class="fa fa-user" aria-hidden="true"></i><b> DJ of the Year </b></p>
+          <% end %>
+      </div>
+    </div>
   </div>
-</div>
+
 <div class="container-playlist">
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
-    <div class="title">
-      <div class="title-image">
-        <%= image_tag "profile.png" %>
-      </div>
+    <div class="title-index">
       <div class="title-tag">
       <h3>My playlists</h3>
       </div>
+      <ul class="button-actions">
+        <li>
+        <%= link_to new_playlist_path, class: "btn btn-success btn-create" do %>
+        <i class="fa fa-plus-circle"></i> Create a new playlist
+        <% end %>
+        </li>
+        <li>
+        <%= link_to edit_user_registration_path, class: "btn btn-default btn-settings" do %>
+        <i class="fa fa-cog"></i> My profile
+        <% end %>
+        </li>
+      </ul>
+
     </div>
     <% if @user.playlists.any? %>
     <% @user.playlists.each do |playlist| %>

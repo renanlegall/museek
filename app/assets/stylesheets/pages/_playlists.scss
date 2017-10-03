@@ -3,21 +3,6 @@
   position: relative;
 }
 
-.title {
-  margin: 15px 10px;
-  display: flex;
-  text-emphasis: bold;
-}
-
-.title-tag {
-padding-left: 30px;
-}
-
-.title-tag h3 {
-  font-size: 35px;
-}
-
-
 .btn-circle {
     font-size: 14px;
     // font-weight: bold;
@@ -31,4 +16,56 @@ padding-left: 30px;
     min-width: 150px;
     text-transform: uppercase;
     white-space: normal;
+}
+
+.btn-create {
+  border-radius: 5px;
+  font-size: 15px;
+  margin-right: 5px;
+}
+
+.btn-settings {
+  border-radius: 5px;
+  font-size: 15px;
+  margin-left: 5px;
+}
+
+.button-actions {
+  top: 20px;
+  list-style: none;
+  display: flex;
+}
+
+.title {
+  margin: 15px 10px;
+  display: flex;
+  text-emphasis: bold;
+  align-items: center;
+}
+
+.title-index{
+  margin: 15px 10px;
+  display: flex;
+  text-emphasis: bold;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.title-tag {
+  margin-top: 25px;
+  padding-left: 10px;
+}
+
+.title-profile {
+  margin: 15px 10px;
+  display: flex;
+  text-emphasis: bold;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.title-tag h3 {
+  font-size: 20px;
+  color: #8787a5;
 }
