@@ -1,8 +1,10 @@
 <div class="wrapper-playlist">
     <div class="playlist text-center">
-      <div class="col-xs-10 col-xs-offset-1">
+      <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-lg-10 col-lg-offset-1">
       <% if @playlist.user == current_user %>
          <%= render 'tracks/form' %>
+      <% else %>
+        <p>Enjoy the tracklist of <i><%= @playlist.user.first_name %></i> below :</p>
       <% end %>
       </div>
 
@@ -128,8 +130,9 @@
                 <% end %>
               </li>
               </ul>
-        </div>
+
         <% end %>
+        </div>
 
         <div class="chatroom">
           <% if current_user == @playlist.user %>
@@ -139,8 +142,12 @@
             <div class="chat-header"><h4>#Chat with <%= @playlist.user.first_name %></h4></div>
           <% end %>
             <div class="messages">
+              <% if @playlist.messages.empty? %>
+              <%= render "messages/without-message" %>
+              <% else %>
               <% @playlist.messages.each do |message| %>
                 <%= render "messages/message", message: message, user_is_messages_author: message.user == current_user %>
+              <% end %>
               <% end %>
             </div>
             <div id="create-message">
