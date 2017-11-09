@@ -51,15 +51,27 @@
   padding: 0 20px;
 }
 
+.navbar-wagon-item:hover {
+  border-bottom: blue;
+}
+
+
+
 /* Navbar link */
 .navbar-wagon-link {
   color: #616668;
   font-size: 16px;
 }
 
+.navbar-wagon-link:active {
+  font-weight : bold;
+  border-bottom: 3px solid #AEE8E6;
+}
+
 .navbar-wagon-link:hover {
   color: #da552f;
   text-decoration: none;
+  border-bottom: #da552f;
 }
 
 /* Dropdown menu */

@@ -24,7 +24,7 @@
 
 <div class="container-playlist">
   <div class="row">
-    <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+    <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
     <div class="title-index">
       <div class="title-tag">
       <h3>My playlists</h3>
@@ -45,6 +45,7 @@
     </div>
     <% if @user.playlists.any? %>
     <% @user.playlists.each do |playlist| %>
+    <div class="col-xs-6">
       <div class="product">
 
         <div class="upvote-container" id="playlist-<%= playlist.id %>">
@@ -54,31 +55,40 @@
         <% if playlist.photo? %>
         <%= cl_image_tag playlist.photo.path, width: 200, height: 100, crop: :fill, class: "product-image hidden-xs"%>
         <% end %>
-        <div class='product-body'>
+        <div class='product-content'>
           <h3><%= playlist.name %></h3>
           <h4><%= playlist.tracks.size.to_i %> tracks</h4>
-          <p><%= playlist.description %></p>
+          <%= link_to playlist_path(playlist), class: "btn btn-primary btn-circle", id: "playlist"+playlist.id.to_s do %>
+            <i class="fa fa-plus-circle"></i> Add Tracks
+          <% end %>
         </div>
-          <ul class="list-inline product-controls hidden-sm hidden-xs">
-            <li>
-              <%= link_to edit_playlist_path(playlist), method: :get do %>
-              <i class= "fa fa-pencil"></i>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to playlist_path(playlist), method: :delete, data: { confirm: '🎵 Are you sure ? 🎵'} do %>
-                  <i class="fa fa-trash"></i>
-                <% end %>
-              </li>
-          </ul>
-        <%= link_to playlist_path(playlist), class: "btn btn-primary btn-circle", id: "playlist"+playlist.id.to_s do %>
-          <i class="fa fa-plus-circle"></i> Add Tracks
-        <% end %>
+        </div>
+
         </div>
       <% end %>
     <% else %>
       <a href='<%= new_playlist_path %>' class='btn btn-success btn-circle center-block'><span class='glyphicon glyphicon-plus'></span> Create your first playlist !</a>
     <% end %>
+    </div>
+  </div>
+</div>
+<!--
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signUp">
+  Sign Up
+</button> -->
+
+<div class="modal fade" id="signUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Sign Up</h4>
+      </div>
+      <div class="modal-body">
+        <!-- Your signup form -->
+      </div>
     </div>
   </div>
 </div>
