@@ -8,7 +8,7 @@
     // font-weight: bold;
     line-height: 1;
     border-radius: 30px;
-    padding: 18px 5px 16px;
+    padding: 8px 5px 8px;
     transition-property: background-color,border-color,color,box-shadow,filter;
     transition-duration: .3s;
     border-width: 0;
@@ -91,12 +91,12 @@
 }
 .product-content h3 {
   font-weight: bold;
-  font-size: 24px;
+  font-size: 18px;
   margin-top: 0;
 }
 
 .product-content h4 {
-  font-size: 18px;
+  font-size: 14px;
   margin-top: 0;
   color: #39BAE8;
 }
@@ -104,6 +104,6 @@
   font-weight: lighter;
   color: #999999;
   margin-bottom: 0;
-  font-size: 15px;
+  font-size: 10px;
   max-width: 260px;
 }
