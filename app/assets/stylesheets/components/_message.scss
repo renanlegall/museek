@@ -34,7 +34,6 @@
 
 #create-message {
   padding: 10px;
-  background-color: #ffffff;
   margin-bottom: 20px;
   border: 1px solid #ececec;
 }
@@ -59,6 +58,7 @@ input.form-control {
   margin-top: 10px;
   display:flex;
   h4 {
+    font-size: 16px;
     margin: 0;
   }
 }
